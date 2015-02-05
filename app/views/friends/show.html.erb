@@ -7,6 +7,7 @@
 	<strong>Twitter Handle:</strong>
 		<%= @friend.twitterHandle %>
 </p>
+<img src="<%= @tweets[0].user.profile_image_url%>">
 <h2>Latest Tweet:</h2>
 <h3><%= @tweets[0].text %></h3>
 <h4>Score: <%= Indico.sentiment(@tweets[0].text) %></h4>
