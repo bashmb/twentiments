@@ -1,0 +1,15 @@
+<h1> Add a new friend</h1>
+<%= form_for :friend, url: friends_path do |f| %>
+	<p>
+		<%= f.label :firstName, "First Name" %><br>
+		<%= f.text_field :firstName %>
+	</p>
+
+	<p>
+		<%= f.label :twitterHandle, "Twitter Handle" %><br>
+		<%= f.text_field :twitterHandle %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

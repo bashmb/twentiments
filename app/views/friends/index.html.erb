@@ -1,0 +1,11 @@
+<h1>All friends</h1>
+
+<ul class="collapsible" data-collapsible="accordion">
+
+<% @friends.each do |friend| %>
+    <li>
+      <div class="collapsible-header"><i class="mdi-image-filter-drama"></i><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", friend.id.to_s  %></div>
+      <div class="collapsible-body"><p><%= Indico.sentiment(friend['twitterHandle']) %></p></div>
+    </li>
+    <% end %>
+</ul>

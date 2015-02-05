@@ -1,0 +1,18 @@
+<p>
+	<strong>First Name:</strong>
+	<%= @friend.firstName %>
+</p>
+
+<p>
+	<strong>Twitter Handle:</strong>
+		<%= @friend.twitterHandle %>
+</p>
+<h2>Latest Tweet:</h2>
+<h3><%= @tweets[0].text %></h3>
+<h4>Score: <%= Indico.sentiment(@tweets[0].text) %></h4>
+<hr>
+<h3>Recent Tweets:</h3>
+<% for i in 1..10 %>
+	<li><%= @tweets[i].text %></li>
+<% end %>
+
