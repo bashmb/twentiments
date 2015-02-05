@@ -1,5 +1,5 @@
 <h1>All friends</h1>
-<h3><%= link_to "Add friend","friends/new" %></h3>
+<h3><%= link_to "Add friend","new" %></h3>
 
 <div style="width:600px; margin:0 auto;">
 <ul class="collapsible" data-collapsible="accordion">
@@ -8,7 +8,8 @@
     <li>
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
       <div class="collapsible-header">
-      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40">   <%= link_to friend.firstName + " (" + friend.twitterHandle + ")", friend.id.to_s  %><div style="float:right"><%= (Indico.sentiment(latestTweet.text)*100).round %></div>
+
+      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", friend.id.to_s  %><div style="float:right"><%= (Indico.sentiment(latestTweet.text)*100).round %></div>
       </div>
       <div class="collapsible-body">
       	<p>
