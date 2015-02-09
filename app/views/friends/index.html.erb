@@ -9,7 +9,7 @@
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
       <div class="collapsible-header">
 
-      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", "friends/" + friend.id.to_s  %>
+      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (@" + friend.twitterHandle + ")", "friends/" + friend.id.to_s  %>
           <div style="float:right">  
           <%= (Indico.sentiment(latestTweet.text)*100).round %>
           <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete' %>
