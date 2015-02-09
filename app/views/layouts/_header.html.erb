@@ -6,8 +6,7 @@
       	<a href="#" data-activates="slide-out" class="button-collapse">
   			<i class="large mdi-navigation-menu"></i>
 		</a>
-
-      <a id="logo-container" href="/friends" class="brand-logo"><i class = mdi-editor-mode-comment></i>Twentiments</a>
+		<%= link_to "<i class = mdi-editor-mode-comment></i>Twentiments".html_safe, :friends, :class => "brand-logo", data: { no_turbolink: true } %>
         <ul id="nav-mobile" class="right side-nav">
           <li><a href="#">Navbar Link</a></li>
         </ul>
@@ -19,7 +18,7 @@
 
 
 
-  <li><%= link_to "Friends", :friends %></li>
+  <li><%= link_to "Friends", :friends, data: { no_turbolink: true }  %></li>
     <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i>Add Friend</a></li>
   
 </ul>
