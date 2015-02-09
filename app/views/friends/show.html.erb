@@ -1,13 +1,12 @@
-<p>
-	<strong>First Name:</strong>
-	<%= @friend.firstName %>
-</p>
+<div style="width:600px; margin:0 auto;">
+<h1>
+	<img src="<%= @tweets[0].user.profile_image_url%>"> <%= @friend.firstName %>
+</h1>
 
-<p>
-	<strong>Twitter Handle:</strong>
-		<%= @friend.twitterHandle %>
-</p>
-<img src="<%= @tweets[0].user.profile_image_url%>">
+<h5>
+	<i><%=link_to "@" + @friend.twitterHandle, "http://twitter.com/" + @friend.twitterHandle %></i>
+</h3>
+
 <h2>Latest Tweet:</h2>
 <h3><%= @tweets[0].text %></h3>
 <h4>Score: <%= (Indico.sentiment(@tweets[0].text)*100).round %></h4>

@@ -17,6 +17,11 @@ class FriendsController < ApplicationController
 		@friend = Friend.find(params[:id])
 		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
 	end
+
+	def destroy
+		Friend.find(params['id']).destroy
+		redirect_to :friends
+	end
 	
 	private
 		def friend_params
