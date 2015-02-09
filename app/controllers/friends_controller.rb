@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
 	def create
 		@friend = Friend.new(friend_params)
+		@friend['twitterHandle'] = @friend['twitterHandle'].gsub(/@/,"")
 		@friend.save
 		redirect_to @friend
 	end
