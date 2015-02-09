@@ -1,7 +1,7 @@
 
 <div style="width:600px; margin:0 auto;">
 <h1>All friends</h1>
-<h4 style=""><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i>Add something</a></h4>
+<h4 style=""><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i></a></h4>
 <ul class="collapsible" data-collapsible="accordion">
 
 <% @friends.each do |friend| %>
@@ -35,7 +35,7 @@
   <%= form_for :friend, url: friends_path do |f| %>
   <p>
     <i class="mdi-social-mood"></i> 
-    <%= f.label :firstName, "First Name" %><br>
+    <%= f.label :firstName, "Name" %><br>
     <%= f.text_field :firstName %>
   </p>
 
@@ -44,12 +44,13 @@
     <%= f.label :twitterHandle, "Twitter Handle" %><br>
     <%= f.text_field :twitterHandle %>
   </p>
-  <p>
-    <%= f.submit %>
+  <div class="action-bar">
+  <p style="float:right">
+    <%= f.submit "Add Friend", :class => "waves-effect waves-teal btn-flat" %>
   </p>
-<% end %>  <div class="action-bar">
-    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
   </div>
+<% end %>  
+
 </div>
 
 <script>
