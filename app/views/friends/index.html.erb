@@ -1,7 +1,7 @@
 
 <div style="width:600px; margin:0 auto;">
 <h1>All friends</h1>
-<h4 style=""><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i></a></h4>
+<h4 style=""></h4>
 <ul class="collapsible" data-collapsible="accordion">
 
 <% @friends.each do |friend| %>
@@ -29,33 +29,3 @@
 
 
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <h4>Add new friend</h4>
-  <%= form_for :friend, url: friends_path do |f| %>
-  <p>
-    <i class="mdi-social-mood"></i> 
-    <%= f.label :firstName, "Name" %><br>
-    <%= f.text_field :firstName %>
-  </p>
-
-  <p>
-    <i class="mdi-social-mood"></i>
-    <%= f.label :twitterHandle, "Twitter Handle" %><br>
-    <%= f.text_field :twitterHandle %>
-  </p>
-  <div class="action-bar">
-  <p style="float:right">
-    <%= f.submit "Add Friend", :class => "waves-effect waves-teal btn-flat" %>
-  </p>
-  </div>
-<% end %>  
-
-</div>
-
-<script>
-  $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
-</script>
