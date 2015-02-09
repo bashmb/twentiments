@@ -1,7 +1,7 @@
 
 <div style="width:600px; margin:0 auto;">
 <h1>All friends</h1>
-<h4><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add</a></h4>
+<h4 style=""><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i></a></h4>
 <ul class="collapsible" data-collapsible="accordion">
 
 <% @friends.each do |friend| %>
@@ -9,7 +9,12 @@
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
       <div class="collapsible-header">
 
-      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", "friends/" + friend.id.to_s  %><div style="float:right"><%= (Indico.sentiment(latestTweet.text)*100).round %><%= link_to "x", "/friends/"+friend.id.to_s, :method => 'delete' %></div>
+      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", "friends/" + friend.id.to_s  %>
+          <div style="float:right">  
+          <%= (Indico.sentiment(latestTweet.text)*100).round %>
+          <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete' %>
+          
+          </div>
       </div>
       <div class="collapsible-body">
       	<p>
