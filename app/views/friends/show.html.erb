@@ -10,7 +10,7 @@
 <img src="<%= @tweets[0].user.profile_image_url%>">
 <h2>Latest Tweet:</h2>
 <h3><%= @tweets[0].text %></h3>
-<h4>Score: <%= Indico.sentiment(@tweets[0].text) %></h4>
+<h4>Score: <%= (Indico.sentiment(@tweets[0].text)*100).round %></h4>
 <hr>
 <h3>Recent Tweets:</h3>
 <% for i in 1..10 %>

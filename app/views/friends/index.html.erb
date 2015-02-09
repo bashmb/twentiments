@@ -1,6 +1,5 @@
 <h1>All friends</h1>
-<h3><%= link_to "Add friend","new" %></h3>
-
+<h4><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add</a></h4>
 <div style="width:600px; margin:0 auto;">
 <ul class="collapsible" data-collapsible="accordion">
 
@@ -9,7 +8,7 @@
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
       <div class="collapsible-header">
 
-      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", friend.id.to_s  %><div style="float:right"><%= (Indico.sentiment(latestTweet.text)*100).round %></div>
+      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (" + friend.twitterHandle + ")", "friends/" + friend.id.to_s  %><div style="float:right"><%= (Indico.sentiment(latestTweet.text)*100).round %></div>
       </div>
       <div class="collapsible-body">
       	<p>
@@ -20,3 +19,36 @@
     <% end %>
 </ul>
 </div>
+
+
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <h4>Add new friend</h4>
+  <%= form_for :friend, url: friends_path do |f| %>
+  <p>
+    <i class="mdi-social-mood"></i> 
+    <%= f.label :firstName, "First Name" %><br>
+    <%= f.text_field :firstName %>
+  </p>
+
+  <p>
+    <i class="mdi-social-mood"></i>
+    <%= f.label :twitterHandle, "Twitter Handle" %><br>
+    <%= f.text_field :twitterHandle %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>  <div class="action-bar">
+    <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>

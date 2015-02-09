@@ -1,8 +1,38 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+ */
+
+
+@font-face {
+  font-family: "Material-Design-Icons";
+  src: url("Material-Design-Icons.eot?-g7cqhn");
+  src: 	url("Material-Design-Icons.eot?#iefix-g7cqhn") format("embedded-opentype"), 
+  		url("Material-Design-Icons.woff?-g7cqhn") format("woff"), 
+  		url("Material-Design-Icons.ttf?-g7cqhn") format("truetype"), 
+  		url("Material-Design-Icons.svg?-g7cqhn#Material-Design-Icons") format("svg");
+  font-weight: normal;
+  font-style: normal; 
+
+}
 /*!
  * Materialize v0.95.1 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important; }
 
@@ -2461,8 +2491,8 @@ span.badge {
 
 @font-face {
   font-family: "Material-Design-Icons";
-  src: url("/assets/material-design-icons/Material-Design-Icons.eot?-g7cqhn");
-  src: url("/assets/material-design-icons/Material-Design-Icons.eot?#iefix-g7cqhn") format("embedded-opentype"), url("/assets/material-design-icons/Material-Design-Icons.woff?-g7cqhn") format("woff"), url("/assets/material-design-icons/Material-Design-Icons.ttf?-g7cqhn") format("truetype"), url("/assets/material-design-icons/Material-Design-Icons.svg?-g7cqhn#Material-Design-Icons") format("svg");
+  src: url("../font/material-design-icons/Material-Design-Icons.eot?-g7cqhn");
+  src: url("../font/material-design-icons/Material-Design-Icons.eot?#iefix-g7cqhn") format("embedded-opentype"), url("../font/material-design-icons/Material-Design-Icons.woff?-g7cqhn") format("woff"), url("../font/material-design-icons/Material-Design-Icons.ttf?-g7cqhn") format("truetype"), url("../font/material-design-icons/Material-Design-Icons.svg?-g7cqhn#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
