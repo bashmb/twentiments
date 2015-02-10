@@ -29,6 +29,12 @@ class FriendsController < ApplicationController
 		@friend = Friend.find(params[:id])
 		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
 		@score = (Indico.sentiment(@tweets[0].text)*100).round
+		@historicalScores = []
+		for i in 0..10
+			@historicalScores << ((Indico.sentiment@tweets[i].text)*100).round
+		end
+
+
 		colorScore = (@score / 10).round
 		scoreColorArray = [	
 							"#CC0033", 	#00
