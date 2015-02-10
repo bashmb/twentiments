@@ -11,19 +11,41 @@
               <p><%= @tweets[0].text %></p>
             </div>
             <div class="card-action" style="background-color:<%= @scoreColor %>">
-              <h4>Score: <%= @score %></h4>
+              <h4><%= @score %></h4>
               
             </div>
 
           </div>
         </div>
 
+
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text" style="background-color:<%= @scoreColor %>" >
+              <span class="card-title"> <img src="<%= @tweets[9].user.profile_image_url%>"> <%= @friend.firstName %> 
+                <i><%=link_to "@" + @friend.twitterHandle, "http://twitter.com/" + @friend.twitterHandle %></i>
+              </span>
+              <p><div id='reporting'></div></p>
+            </div>
+            <div class="card-action" style="background-color:<%= @scoreColor %>">
+              <h4><div id='hoverScore'>--</div></h4>
+              
+            </div>
+
+          </div>
+        </div>
+
+
+
       </div>
+      
 <div id="container" style="width:100%; height:400px;"></div>
 
 
       <script>
 $(function () {
+     var $reporting = $('#reporting');
+     var $hoverScore = $('#hoverScore');
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
@@ -38,10 +60,13 @@ $(function () {
             categories: ['','','','','','','','','',"Latest Tweet"]
         },
         yAxis: {
+            min: 0,
+            max: 100,
             title: {
               text: "Sentiment Analysis Scores"
             }
         },
+        
         series: [{
             showInLegend: false,
             data: [{
@@ -76,10 +101,28 @@ $(function () {
                 tweet: "<%= @tweets[0].text %>"
             }]
         }],
+        plotOptions: {
+            series: {
+                point: {
+                    events: {
+                        mouseOver: function () {
+                            $reporting.html(this.tweet);
+                            $hoverScore.html(this.y);
+                        }
+                    }
+                },
+                events: {
+                    mouseOut: function () {
+                        $reporting.empty();
+                    }
+                }
+            }
+        },
+
+
         tooltip: {
             formatter: function() {return ' ' +
-                'Score: ' + this.point.y + '<br />' +
-                'Tweet: ' + this.point.tweet
+                'Score: ' + this.point.y
                 ;
             }
         }

@@ -36,7 +36,7 @@ class FriendsController < ApplicationController
 
 
 		colorScore = (@score / 10).round
-		scoreColorArray = [	
+		@scoreColorArray = [	
 							"#CC0033", 	#00
 							"#CC0033",	#01
 							"#CC0033",	#02
@@ -48,7 +48,7 @@ class FriendsController < ApplicationController
 							"#339966",	#08
 							"#339966",	#09
 							"#339966" ]	#10
-		@scoreColor = scoreColorArray[((@score / 10).round)]
+		@scoreColor = @scoreColorArray[((@score / 10).round)]
 	end
 
 	def destroy
