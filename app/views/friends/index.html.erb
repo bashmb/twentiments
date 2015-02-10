@@ -8,11 +8,16 @@
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
     <% score = (Indico.sentiment(latestTweet.text)*100).round %>
 
-      <div class="collapsible-header valign-wrapper" style="background-color:<%= @scoreColorArray[(score/10).round]%>">
+      <div class="collapsible-header" style="background-color:<%= @scoreColorArray[(score/10).round]%>; color=#FFFFFF ">
 
-      	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (@" + friend.twitterHandle + ")", "friends/" + friend.id.to_s, :style => 'color:#FFA292' %>
+      	<span><img src="<%= latestTweet.user.profile_image_url %>" width="39" height="39"></span>
+        <span style='color:#FFA292; font-size:1.6em;'><%= friend.firstName %></span>
+
           <div style="float:right">  
-          <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete', :style => 'color:#FFA292' %>
+          <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete', :style => 'color:#1B2348' %>
+          <%= link_to "<i class='mdi-content-send'></i>".html_safe, "friends/" + friend.id.to_s, :style => 'color:#1B2348' %>
+          
+          
           
           </div>
       </div>
