@@ -1,6 +1,5 @@
 
 <div style="width:600px; margin:0 auto;">
-<h1>All friends</h1>
 <h4 style=""></h4>
 <ul class="collapsible" data-collapsible="accordion">
 
@@ -13,7 +12,6 @@
 
       	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (@" + friend.twitterHandle + ")", "friends/" + friend.id.to_s, :style => 'color:#FFA292' %>
           <div style="float:right">  
-          <%= score %>
           <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete', :style => 'color:#FFA292' %>
           
           </div>
