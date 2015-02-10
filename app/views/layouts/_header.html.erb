@@ -32,12 +32,6 @@
   <h4>Add new friend</h4>
   <%= form_for :friend, url: friends_path do |f| %>
   <p>
-    <i class="mdi-social-mood"></i> 
-    <%= f.label :firstName, "Name", :placeholder => "Name" %><br>
-    <%= f.text_field :firstName, :placeholder => "Full Name" %>
-  </p>
-
-  <p>
     <i class="mdi-social-mood"></i>
     <%= f.label :twitterHandle, "Twitter Handle" %><br>
     <%= f.text_field :twitterHandle, :placeholder => "Twitter Handle" %>

@@ -1,9 +1,19 @@
+require 'open-uri'
 class FriendsController < ApplicationController
 	def create
 		@friend = Friend.new(friend_params)
 		@friend['twitterHandle'] = @friend['twitterHandle'].gsub(/@/,"")
-		@friend.save
-		redirect_to @friend
+		friendHash = JSON.load(open("https://twitter.com/users/username_available?username="+@friend['twitterHandle']))
+		begin
+			if CLIENT.user(@friend.twitterHandle).created?
+				@friend['firstName'] = CLIENT.user(@friend.twitterHandle).name
+				@friend.save
+				redirect_to @friend
+			end
+		rescue
+			redirect_to @friend
+		end
+
 	end
 
 	def new
@@ -58,7 +68,7 @@ class FriendsController < ApplicationController
 	
 	private
 		def friend_params
-			params.require(:friend).permit(:firstName, :twitterHandle)
+			params.require(:friend).permit(:twitterHandle)
 		end
 
 end
