@@ -71,34 +71,34 @@ $(function () {
             showInLegend: false,
             data: [{
                 y: <%= @historicalScores[9] %>,
-                tweet: "<%= @tweets[9].text %>"
+                tweet: "<%= @tweets[9].text.gsub(/['\n']/,' ') %>"
             }, {
                 y: <%= @historicalScores[8] %>,
-                tweet: "<%= @tweets[8].text %>"
+                tweet: "<%= @tweets[8].text.gsub(/['\n']/,' ') %>"
             }, {
                 y: <%= @historicalScores[7] %>,
-                tweet: "<%= @tweets[7].text %>"
+                tweet: "<%= @tweets[7].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[6] %>,
-                tweet: "<%= @tweets[6].text %>"
+                tweet: "<%= @tweets[6].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[5] %>,
-                tweet: "<%= @tweets[5].text %>"
+                tweet: "<%= @tweets[5].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[4] %>,
-                tweet: "<%= @tweets[4].text %>"
+                tweet: "<%= @tweets[4].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[3] %>,
-                tweet: "<%= @tweets[3].text %>"
+                tweet: "<%= @tweets[3].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[2] %>,
-                tweet: "<%= @tweets[2].text %>"
+                tweet: "<%= @tweets[2].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[1] %>,
-                tweet: "<%= @tweets[1].text %>"
+                tweet: "<%= @tweets[1].text.gsub(/['\n']/,' ') %>"
             },{
                 y: <%= @historicalScores[0] %>,
-                tweet: "<%= @tweets[0].text %>"
+                tweet: "<%= @tweets[0].text.gsub(/['\n']/,' ') %>"
             }]
         }],
         plotOptions: {
