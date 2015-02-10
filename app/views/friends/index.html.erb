@@ -8,7 +8,7 @@
     <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
     <% score = (Indico.sentiment(latestTweet.text)*100).round %>
 
-      <div class="collapsible-header" style="background-color:<%= @scoreColorArray[(score/10).round]%>; color=#FFFFFF ">
+      <div class="collapsible-header valign-wrapper" style="background-color:<%= @scoreColorArray[(score/10).round]%>">
 
       	<img src="<%= latestTweet.user.profile_image_url %>" width="40" height="40"><%= link_to friend.firstName + " (@" + friend.twitterHandle + ")", "friends/" + friend.id.to_s, :style => 'color:#FFA292' %>
           <div style="float:right">  
