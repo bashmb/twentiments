@@ -21,13 +21,6 @@
 
       </div>
 <div id="container" style="width:100%; height:400px;"></div>
-      <ul class="collection with-header">
-        <li class="collection-header"><h4>Recent Tweets:</h4></li>
-
-        <% for i in 1..10 %>
-		     <li class="collection-item"><%= @tweets[i].text %></li>
-		    <% end %>
-      </ul>
 
 
       <script>
@@ -35,34 +28,59 @@ $(function () {
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            type: 'spline'
+            type: 'area'
+        },
+        title: {
+            text: ""
         },
         xAxis: {
-            categories: ['Main Item', 'Second Item', 'Third Item']
+
+            categories: ['','','','','','','','','',"Latest Tweet"]
+        },
+        yAxis: {
+            title: {
+              text: "Sentiment Analysis Scores"
+            }
         },
         series: [{
+            showInLegend: false,
             data: [{
-                y: <%= @historicalScores[1] %>,
-                tweet: 1,
-                unlocked: 1,
-                potential: 1,
+                y: <%= @historicalScores[9] %>,
+                tweet: "<%= @tweets[9].text %>"
             }, {
-                y: <%= @historicalScores[2] %>,
-                tweet: 2,
-                unlocked: 1,
-                potential: 2,
+                y: <%= @historicalScores[8] %>,
+                tweet: "<%= @tweets[8].text %>"
             }, {
+                y: <%= @historicalScores[7] %>,
+                tweet: "<%= @tweets[7].text %>"
+            },{
+                y: <%= @historicalScores[6] %>,
+                tweet: "<%= @tweets[6].text %>"
+            },{
+                y: <%= @historicalScores[5] %>,
+                tweet: "<%= @tweets[5].text %>"
+            },{
+                y: <%= @historicalScores[4] %>,
+                tweet: "<%= @tweets[4].text %>"
+            },{
                 y: <%= @historicalScores[3] %>,
-                tweet: 3,
-                unlocked: 1,
-                potential: 3,
+                tweet: "<%= @tweets[3].text %>"
+            },{
+                y: <%= @historicalScores[2] %>,
+                tweet: "<%= @tweets[2].text %>"
+            },{
+                y: <%= @historicalScores[1] %>,
+                tweet: "<%= @tweets[1].text %>"
+            },{
+                y: <%= @historicalScores[0] %>,
+                tweet: "<%= @tweets[0].text %>"
             }]
         }],
         tooltip: {
             formatter: function() {return ' ' +
                 'Score: ' + this.point.y + '<br />' +
-                'Tweet: ' + this.point.tweet + '<br />' +
-                'Potential: ' + this.point.potential;
+                'Tweet: ' + this.point.tweet
+                ;
             }
         }
     });
