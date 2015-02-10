@@ -20,15 +20,51 @@
         </div>
 
       </div>
-
+<div id="container" style="width:100%; height:400px;"></div>
       <ul class="collection with-header">
         <li class="collection-header"><h4>Recent Tweets:</h4></li>
 
         <% for i in 1..10 %>
-		<li class="collection-item"><%= @tweets[i].text %></li>
-		<% end %>
-
+		     <li class="collection-item"><%= @tweets[i].text %></li>
+		    <% end %>
       </ul>
 
 
-
+      <script>
+$(function () {
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'spline'
+        },
+        xAxis: {
+            categories: ['Main Item', 'Second Item', 'Third Item']
+        },
+        series: [{
+            data: [{
+                y: <%= @historicalScores[1] %>,
+                tweet: 1,
+                unlocked: 1,
+                potential: 1,
+            }, {
+                y: <%= @historicalScores[2] %>,
+                tweet: 2,
+                unlocked: 1,
+                potential: 2,
+            }, {
+                y: <%= @historicalScores[3] %>,
+                tweet: 3,
+                unlocked: 1,
+                potential: 3,
+            }]
+        }],
+        tooltip: {
+            formatter: function() {return ' ' +
+                'Score: ' + this.point.y + '<br />' +
+                'Tweet: ' + this.point.tweet + '<br />' +
+                'Potential: ' + this.point.potential;
+            }
+        }
+    });
+});
+</script>
