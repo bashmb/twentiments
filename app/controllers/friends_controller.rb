@@ -11,12 +11,38 @@ class FriendsController < ApplicationController
 
 	def index
 		@friends = Friend.all
-
+		@scoreColorArray = [	
+							"#CC0033", 	#00
+							"#CC0033",	#01
+							"#CC0033",	#02
+							"#B61945",	#03
+							"#A13256",	#04
+							"#607D8B", 	#05
+							"#458E75",	#06
+							"#3C936D",	#07
+							"#339966",	#08
+							"#339966",	#09
+							"#339966" ]	#10
 	end
 	
 	def show
 		@friend = Friend.find(params[:id])
 		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
+		@score = (Indico.sentiment(@tweets[0].text)*100).round
+		colorScore = (@score / 10).round
+		scoreColorArray = [	
+							"#CC0033", 	#00
+							"#CC0033",	#01
+							"#CC0033",	#02
+							"#B61945",	#03
+							"#A13256",	#04
+							"#607D8B", 	#05
+							"#458E75",	#06
+							"#3C936D",	#07
+							"#339966",	#08
+							"#339966",	#09
+							"#339966" ]	#10
+		@scoreColor = scoreColorArray[((@score / 10).round)]
 	end
 
 	def destroy
