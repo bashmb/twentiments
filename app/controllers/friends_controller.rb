@@ -3,7 +3,6 @@ class FriendsController < ApplicationController
 	def create
 		@friend = Friend.new(friend_params)
 		@friend['twitterHandle'] = @friend['twitterHandle'].gsub(/@/,"")
-		friendHash = JSON.load(open("https://twitter.com/users/username_available?username="+@friend['twitterHandle']))
 		begin
 			if CLIENT.user(@friend.twitterHandle).created?
 				@friend['firstName'] = CLIENT.user(@friend.twitterHandle).name
