@@ -8,10 +8,10 @@
               <span class="card-title">	<img src="<%= @tweets[0].user.profile_image_url%>"> <%= @friend.firstName %> 
               	<i><%=link_to "@" + @friend.twitterHandle, "http://twitter.com/" + @friend.twitterHandle %></i>
               </span>
-              <p><%= @tweets[0].text %></p>
+              <h5><%= @tweets[0].text %></h5>
             </div>
             <div class="card-action" style="background-color:<%= @scoreColor %>">
-              <h4><%= @score %></h4>
+              <h5><%= @score %></h5>
               
             </div>
 
@@ -25,10 +25,10 @@
               <span class="card-title"> <img src="<%= @tweets[9].user.profile_image_url%>"> <%= @friend.firstName %> 
                 <i><%=link_to "@" + @friend.twitterHandle, "http://twitter.com/" + @friend.twitterHandle %></i>
               </span>
-              <p><div id='reporting'></div></p>
+              <h5><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
             </div>
             <div class="card-action hoverCard" style="background-color:<%= @scoreColor %>">
-              <h4><div id='hoverScore'>--</div></h4>
+              <h5><div id='hoverScore'>--</div></h5>
               
             </div>
 
