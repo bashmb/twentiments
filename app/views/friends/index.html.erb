@@ -14,8 +14,8 @@
         <span style='color:#FFA292; font-size:1.6em;'><%= friend.firstName %></span>
 
           <div style="float:right">  
-          <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.id.to_s, :method => 'delete', :style => 'color:#1B2348' %>
-          <%= link_to "<i class='mdi-content-send'></i>".html_safe, "friends/" + friend.id.to_s, :style => 'color:#1B2348' %>
+          <%= link_to "<i class='mdi-content-clear'></i>".html_safe, "/friends/"+friend.twitterHandle, :method => 'delete', :style => 'color:#1B2348' %>
+          <%= link_to "<i class='mdi-content-send'></i>".html_safe, "friends/" + friend.twitterHandle, :style => 'color:#1B2348' %>
           
           
           

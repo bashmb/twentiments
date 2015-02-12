@@ -7,7 +7,7 @@ class FriendsController < ApplicationController
 			if CLIENT.user(@friend.twitterHandle).created?
 				@friend['firstName'] = CLIENT.user(@friend.twitterHandle).name
 				@friend.save
-				redirect_to @friend
+				redirect_to :friends
 			end
 		rescue
 			redirect_to @friend
@@ -35,14 +35,14 @@ class FriendsController < ApplicationController
 	end
 	
 	def show
-		@latestTweets = Tweet.where(twitterHandle:"mikebashour").order(Tweet.arel_table[:tweetTime].desc).limit(10)
-		@friend = Friend.find(params[:id])
-		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
+		@latestTweets = Tweet.where(twitterHandle:params[:id]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
+		@friend = Friend.where(twitterHandle:params[:id])
+		@tweets = CLIENT.user_timeline(params[:id])
 
 	end
 
 	def destroy
-		Friend.find(params['id']).destroy
+		Friend.where(twitterHandle:params[:id]).destroy_all
 		redirect_to :friends
 	end
 	
