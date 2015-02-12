@@ -35,6 +35,7 @@ class FriendsController < ApplicationController
 	end
 	
 	def show
+		@latestTweets = Tweet.where(twitterHandle:"dalailama").order(Tweet.arel_table[:tweetTime].desc).limit(10)
 		@friend = Friend.find(params[:id])
 		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
 		@score = (Indico.sentiment(@tweets[0].text)*100).round
