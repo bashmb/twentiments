@@ -1,5 +1,5 @@
 # get most recent 10 tweets
-friend = "mindeavor"
+friend = "mikebashour"
 tweets = CLIENT.user_timeline(friend)
 (10).downto(0).each do |i|
 	newTweet = Tweet.new

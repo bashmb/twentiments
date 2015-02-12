@@ -35,30 +35,10 @@ class FriendsController < ApplicationController
 	end
 	
 	def show
-		@latestTweets = Tweet.where(twitterHandle:"dalailama").order(Tweet.arel_table[:tweetTime].desc).limit(10)
+		@latestTweets = Tweet.where(twitterHandle:"mikebashour").order(Tweet.arel_table[:tweetTime].desc).limit(10)
 		@friend = Friend.find(params[:id])
 		@tweets = CLIENT.user_timeline(@friend.twitterHandle)
-		@score = (Indico.sentiment(@tweets[0].text)*100).round
-		@historicalScores = []
-		for i in 0..10
-			@historicalScores << ((Indico.sentiment@tweets[i].text)*100).round
-		end
 
-
-		colorScore = (@score / 10).round
-		@scoreColorArray = [	
-							"#CC0033", 	#00
-							"#CC0033",	#01
-							"#CC0033",	#02
-							"#B61945",	#03
-							"#A13256",	#04
-							"#607D8B", 	#05
-							"#458E75",	#06
-							"#3C936D",	#07
-							"#339966",	#08
-							"#339966",	#09
-							"#339966" ]	#10
-		@scoreColor = @scoreColorArray[((@score / 10).round)]
 	end
 
 	def destroy
