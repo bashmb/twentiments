@@ -34,6 +34,9 @@ gem 'hirb'
 # Install indico gem
 gem 'indico'
 
+# Get some autolinking
+gem 'twitter-text', '~> 1.11.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
