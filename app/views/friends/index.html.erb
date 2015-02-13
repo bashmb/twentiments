@@ -1,3 +1,4 @@
+
 <div style="width:600px; margin:0 auto;">
 <h4 style=""></h4>
 <ul class="collapsible" data-collapsible="accordion">
@@ -22,7 +23,7 @@
       </div>
       <div class="collapsible-body">
       	<p>
-        <%= Rinku.auto_link("www.google.com", mode=:all, link_attr=nil, skip_tags=nil) %>
+        <%= auto_link(latestTweet.text).html_safe %>
       	</p>
   	  </div>
     </li>

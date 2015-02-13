@@ -35,7 +35,7 @@ gem 'hirb'
 gem 'indico'
 
 # Get some autolinking
-gem 'rinku'
+gem 'twitter-text', '~> 1.11.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

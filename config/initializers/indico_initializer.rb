@@ -1,2 +1,1 @@
 require 'indico'
-require 'rinku'

@@ -130,7 +130,6 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
-    rinku (1.7.3)
     sass (3.4.11)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -170,11 +169,16 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-text (1.11.0)
+      unf (~> 0.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
     web-console (2.0.0)
       activemodel (~> 4.0)
       binding_of_caller (>= 0.7.2)
@@ -194,11 +198,11 @@ DEPENDENCIES
   pg
   rails (= 4.2.0)
   rails_12factor
-  rinku
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   therubyracer
   twitter
+  twitter-text (~> 1.11.0)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
