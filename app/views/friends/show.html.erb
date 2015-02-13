@@ -8,7 +8,7 @@
               <span class="card-title"> <img src="<%= @tweets[9].user.profile_image_url%>"> <%= @friend[0].firstName %> 
                 <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i>
               </span>
-              <h5><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
+              <h5 class='tweet'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
             </div>
             <div class="card-action hoverCard" style="background-color:<%= @scoreColor %>">
               <h5><div id='hoverScore'>--</div></h5>
@@ -98,7 +98,7 @@ $(function () {
                 point: {
                     events: {
                         mouseOver: function () {
-                            $reporting.html(this.tweet);
+                            $reporting.html(this.tweet).twitter_autolink();
                             $hoverScore.html(this.y);
                             $('.hoverCard').css('background-color', colorArray[Math.round((this.y)/10)]);
                         }
@@ -107,8 +107,6 @@ $(function () {
 
             }
         },
-
-
         tooltip: {
             formatter: function() {return ' ' +
                 'Score: ' + this.point.y
@@ -118,3 +116,4 @@ $(function () {
     });
 });
 </script>
+
