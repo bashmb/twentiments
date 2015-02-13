@@ -18,8 +18,9 @@
     <br>
     <br>
 
-    <li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i>Add Friend</a></li>
-    <li><%= link_to "<i class = mdi-editor-mode-comment></i> Friends".html_safe, :friends, :style => 'font-size:30px' %></li>
+    <li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i> Add</a></li>
+    <li><%= link_to "<i class = mdi-editor-mode-comment></i> View".html_safe, :friends, :style => 'font-size:30px' %></li>
+    <li><li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal2"><i class="mdi-hardware-keyboard-alt" style="font-size:30px"></i> Compare</a></li>
     <li><%= link_to "#{image_tag('github32.png')} About".html_safe, "https://github.com/bashmb/twentiments", :style => 'font-size:30px' %></li>
   
 </ul>
@@ -45,9 +46,37 @@
 
 </div>
 
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <h4>Compare Friends</h4>
+    <%= form_tag("/friends/compareb", method: "") do %>
+
+      <p>
+        <%=  text_field_tag('user_1') %>
+      </p>
+      <p>
+        <%=  text_field_tag('user_2') %>
+      </p>
+
+      <div class="action-bar">
+      <p style="float:right">
+      <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default modal-action" id="compareBtn" data-dismiss="modal">Compare!</button>
+        </p>
+      </div>
+    <% end %> 
+
+</div>
+
+
 <script>
   $(document).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+  });
+</script>
+<script>
+  $('#compareBtn').click(function() {
+      alert($('#user_1').val());
   });
 </script>

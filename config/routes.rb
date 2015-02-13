@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   resources :tweets
   resources :friends
- get ':controller/:action/:user_1/with_user/:user_2'
+  get ':controller/:action/:user_1/with_user/:user_2', :as => :user_compare
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
