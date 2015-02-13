@@ -34,6 +34,9 @@ gem 'hirb'
 # Install indico gem
 gem 'indico'
 
+# Get some autolinking
+gem 'rinku'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
