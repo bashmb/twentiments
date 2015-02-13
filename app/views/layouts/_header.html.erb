@@ -9,14 +9,18 @@
 		<%= link_to "<i class = mdi-editor-mode-comment></i>Twentiments".html_safe, :friends, :class => "brand-logo" %>
       </div>
     </div>
+    <ul class="mobile">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
   </nav>
   <ul id="slide-out" class="side-nav full">
-  
+    <br>
+    <br>
+    <br>
 
-
-
-  <li><%= link_to "Friends", :friends  %></li>
-    <li><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i>Add Friend</a></li>
+    <li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i>Add Friend</a></li>
+    <li><%= link_to "<i class = mdi-editor-mode-comment></i> Friends".html_safe, :friends, :style => 'font-size:30px' %></li>
+    <li><%= link_to "#{image_tag('github32.png')} About".html_safe, "https://github.com/bashmb/twentiments", :style => 'font-size:30px' %></li>
   
 </ul>
 </div>
