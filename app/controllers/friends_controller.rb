@@ -7,8 +7,6 @@ class FriendsController < ApplicationController
 			if CLIENT.user(@friend.twitterHandle).created?
 				@friend['firstName'] = CLIENT.user(@friend.twitterHandle).name
 				@friend.save
-
-
 					tweets = CLIENT.user_timeline(@friend.twitterHandle)
 					(10).downto(0).each do |i|
 						newTweet = Tweet.new
@@ -21,10 +19,6 @@ class FriendsController < ApplicationController
 							newTweet.save
 						end
 					end
-
-
-
-
 				redirect_to :friends
 			end
 		rescue
@@ -65,6 +59,20 @@ class FriendsController < ApplicationController
 		redirect_to '/'
 	end
 	
+	def compare
+		@user1 = params[:user_1]
+		@user2 = params[:user_2]
+
+		@user1LatestTweets = Tweet.where(twitterHandle:params[:user_1]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
+		@user2LatestTweets = Tweet.where(twitterHandle:params[:user_2]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
+		
+		@user1Friend = Friend.where(twitterHandle:params[:user_1])
+		@user2Ffriend = Friend.where(twitterHandle:params[:user_2])
+		
+		@user1tweets = CLIENT.user_timeline(params[:user_1])
+		@user2tweets = CLIENT.user_timeline(params[:user_2])
+	end
+
 	private
 		def friend_params
 			params.require(:friend).permit(:twitterHandle)
