@@ -1,29 +1,51 @@
 <div style="width:600px; margin:0 auto;">
 <br>
-<h5><i><%= link_to "Twentiments > " , :friends  %><%= "@" + @friend[0].twitterHandle %></i></h5>
+
+<h5><i><%= link_to "Twentiments > " , :friends  %><%= "@" + @user1Friend[0].twitterHandle %></i></h5>
 <div class="row" >
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
-            <div class="card-content white-text hoverCard" style="background-color:<%= @scoreColor %>" >
-              <span class="card-title"> <img src="<%= @tweets[9].user.profile_image_url%>"> <%= @friend[0].firstName %> 
-                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i>
+            <div class="card-content white-text hoverCard1" style="background-color:<%= @scoreColor %>" >
+              <span class="card-title"> <img src="<%= @user1tweets[9].user.profile_image_url%>"> <%= @user1Friend[0].firstName %> 
+                <i><%=link_to "@" + @user1Friend[0].twitterHandle, "http://twitter.com/" + @user1Friend[0].twitterHandle %></i>
               </span>
-              <h5 class='tweet'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
+              <h5 class='tweet'><div id='reporting1'>Hover over chart below to view prior tweets.</div></h5>
             </div>
-            <div class="card-action hoverCard" style="background-color:<%= @scoreColor %>">
-              <h5><div id='hoverScore'>--</div></h5>
+            <div class="card-action hoverCard1" style="background-color:<%= @scoreColor %>">
+              <h5><div id='hoverScore1'>--</div></h5>
+            </div>
+          </div>
+        </div>
+
+<!-- Second Card -->
+
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text hoverCard2" style="background-color:<%= @scoreColor %>" >
+              <span class="card-title"> <img src="<%= @user2tweets[9].user.profile_image_url%>"> <%= @user2Friend[0].firstName %> 
+                <i><%=link_to "@" + @user2Friend[0].twitterHandle, "http://twitter.com/" + @user2Friend[0].twitterHandle %></i>
+              </span>
+              <h5 class='tweet'><div id='reporting2'>Hover over chart below to view prior tweets.</div></h5>
+            </div>
+            <div class="card-action hoverCard2" style="background-color:<%= @scoreColor %>">
+              <h5><div id='hoverScore2'>--</div></h5>
             </div>
           </div>
         </div>
       </div>
-      
+
+
+
+<!-- Start Chart   -->
 <div id="container" style="width:100%; height:400px;"></div>
 
 
       <script>
 $(function () {
-    var $reporting = $('#reporting');
-    var $hoverScore = $('#hoverScore');
+    var $reporting1 = $('#reporting1');
+    var $reporting2 = $('#reporting2');
+    var $hoverScore1 = $('#hoverScore1');
+    var $hoverScore2 = $('#hoverScore2');
     var colorArray = [      "#CC0033",  
                             "#CC0033",  
                             "#CC0033",  
@@ -38,7 +60,7 @@ $(function () {
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            type: 'area'
+            type: 'column'
         },  
 
         title: {
@@ -60,47 +82,110 @@ $(function () {
         },
         
         series: [{
-            showInLegend: false,
+            name: '<%= @user1Friend[0].firstName %>',
             data: [{
-                y: <%= @latestTweets[9].tweetScore %>,
-                tweet: "<%= @latestTweets[9].tweetText %>"
+                y: <%= @user1LatestTweets[9].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[9].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[9].tweetScore %>
             }, {
-                y: <%= @latestTweets[8].tweetScore %>,
-                tweet: "<%= @latestTweets[8].tweetText %>"
+                y: <%= @user1LatestTweets[8].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[8].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[8].tweetScore %>
             }, {
-                y: <%= @latestTweets[7].tweetScore %>,
-                tweet: "<%= @latestTweets[7].tweetText %>"
+                y: <%= @user1LatestTweets[7].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[7].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[7].tweetScore %>
             },{
-                y: <%= @latestTweets[6].tweetScore %>,
-                tweet: "<%= @latestTweets[6].tweetText %>"
+                y: <%= @user1LatestTweets[6].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[6].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[6].tweetScore %>
             },{
-                y: <%= @latestTweets[5].tweetScore %>,
-                tweet: "<%= @latestTweets[5].tweetText %>"
+                y: <%= @user1LatestTweets[5].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[5].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[5].tweetScore %>
             },{
-                y: <%= @latestTweets[4].tweetScore %>,
-                tweet: "<%= @latestTweets[4].tweetText %>"
+                y: <%= @user1LatestTweets[4].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[4].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[4].tweetScore %>
             },{
-                y: <%= @latestTweets[3].tweetScore %>,
-                tweet: "<%= @latestTweets[3].tweetText %>"
+                y: <%= @user1LatestTweets[3].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[3].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[3].tweetScore %>
             },{
-                y: <%= @latestTweets[2].tweetScore %>,
-                tweet: "<%= @latestTweets[2].tweetText %>"
+                y: <%= @user1LatestTweets[2].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[2].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[2].tweetScore %>
             },{
-                y: <%= @latestTweets[1].tweetScore %>,
-                tweet: "<%= @latestTweets[1].tweetText %>"
+                y: <%= @user1LatestTweets[1].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[1].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[1].tweetScore %>
             },{
-                y: <%= @latestTweets[0].tweetScore %>,
-                tweet: "<%= @latestTweets[0].tweetText %>"
+                y: <%= @user1LatestTweets[0].tweetScore %>,
+                tweet1: "<%= @user1LatestTweets[0].tweetText %>",
+                tweet1val: <%= @user1LatestTweets[0].tweetScore %>
             }]
-        }],
+        },{
+            name: '<%= @user2Friend[0].firstName %>',
+            data: [{
+                y: <%= @user2LatestTweets[9].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[9].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[9].tweetScore %>
+            }, {
+                y: <%= @user2LatestTweets[8].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[8].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[8].tweetScore %>
+            }, {
+                y: <%= @user2LatestTweets[7].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[7].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[7].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[6].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[6].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[6].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[5].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[5].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[5].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[4].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[4].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[4].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[3].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[3].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[3].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[2].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[2].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[2].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[1].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[1].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[1].tweetScore %>
+            },{
+                y: <%= @user2LatestTweets[0].tweetScore %>,
+                tweet2: "<%= @user2LatestTweets[0].tweetText %>",
+                tweet2val: <%= @user2LatestTweets[0].tweetScore %>
+            }]
+        }
+
+
+
+
+
+
+        ],
         plotOptions: {
             series: {
                 point: {
                     events: {
                         mouseOver: function () {
-                            $reporting.html(this.tweet).twitter_autolink();
-                            $hoverScore.html(this.y);
-                            $('.hoverCard').css('background-color', colorArray[Math.round((this.y)/10)]);
+                            $reporting1.html(this.tweet1).twitter_autolink();
+                            $reporting2.html(this.tweet2).twitter_autolink();
+                            $hoverScore1.html(this.tweet1val);
+                            $hoverScore2.html(this.tweet2val);
+                            $('.hoverCard1').css('background-color', colorArray[Math.round((this.tweet1val)/10)]);
+                            $('.hoverCard2').css('background-color', colorArray[Math.round((this.tweet2val)/10)]);
                         }
                     }
                 }
@@ -108,12 +193,15 @@ $(function () {
             }
         },
         tooltip: {
-            formatter: function() {return ' ' +
-                'Score: ' + this.point.y
-                ;
-            }
+        	shared: true
         }
     });
 });
 </script>
-
+<style>
+.card,
+.card-content {
+	min-width: 100px;
+	min-height: 450px;
+}
+</style>

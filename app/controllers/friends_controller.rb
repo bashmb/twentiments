@@ -66,8 +66,8 @@ class FriendsController < ApplicationController
 		@user1LatestTweets = Tweet.where(twitterHandle:params[:user_1]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
 		@user2LatestTweets = Tweet.where(twitterHandle:params[:user_2]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
 		
-		@user1Friend = Friend.where(twitterHandle:params[:user_1])
-		@user2Ffriend = Friend.where(twitterHandle:params[:user_2])
+		@user1Friend = Friend.where(twitterHandle:params[:user_1]).to_a
+		@user2Friend = Friend.where(twitterHandle:params[:user_2]).to_a
 		
 		@user1tweets = CLIENT.user_timeline(params[:user_1])
 		@user2tweets = CLIENT.user_timeline(params[:user_2])
