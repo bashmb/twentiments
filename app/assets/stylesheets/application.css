@@ -17,5 +17,9 @@
  */
 
  html {
- 	background-color:#DCEDC8;
+ 	background-image: url('grey.png');
+ }
+
+ .full {
+ 	background-image: url('grey2X.png');
  }

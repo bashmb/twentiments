@@ -38,12 +38,8 @@
   max-width: 550px;
 }
 
-.collapsible-header {
-  display: block;
-  cursor: pointer;
-  height: 5rem;
-  line-height: 3rem;
-  padding: 0 1rem;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd; }
+.collapsible-body {
+  background-color: #DCEDC8;
+  opacity: .8;
+}
 
