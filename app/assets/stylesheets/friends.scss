@@ -18,8 +18,13 @@
 
 .card,
 .card-content {
+  font-size: 1.1em;
 	min-width: 600px;
 	min-height: 260px;
+}
+
+.card a {
+  font-size: .75em;
 }
 
 .modal {
@@ -34,3 +39,4 @@
   padding: 0 1rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd; }
+

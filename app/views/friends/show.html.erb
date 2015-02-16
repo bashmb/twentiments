@@ -69,34 +69,34 @@ $(function () {
             showInLegend: false,
             data: [{
                 y: <%= @latestTweets[9].tweetScore %>,
-                tweet: "<%= @latestTweets[9].tweetText %>"
+                tweet: "<%= @latestTweets[9].tweetText.gsub(/\n/,"") %>"
             }, {
                 y: <%= @latestTweets[8].tweetScore %>,
-                tweet: "<%= @latestTweets[8].tweetText %>"
+                tweet: "<%= @latestTweets[8].tweetText.gsub(/\n/,"") %>"
             }, {
                 y: <%= @latestTweets[7].tweetScore %>,
-                tweet: "<%= @latestTweets[7].tweetText %>"
+                tweet: "<%= @latestTweets[7].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[6].tweetScore %>,
-                tweet: "<%= @latestTweets[6].tweetText %>"
+                tweet: "<%= @latestTweets[6].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[5].tweetScore %>,
-                tweet: "<%= @latestTweets[5].tweetText %>"
+                tweet: "<%= @latestTweets[5].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[4].tweetScore %>,
-                tweet: "<%= @latestTweets[4].tweetText %>"
+                tweet: "<%= @latestTweets[4].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[3].tweetScore %>,
-                tweet: "<%= @latestTweets[3].tweetText %>"
+                tweet: "<%= @latestTweets[3].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[2].tweetScore %>,
-                tweet: "<%= @latestTweets[2].tweetText %>"
+                tweet: "<%= @latestTweets[2].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[1].tweetScore %>,
-                tweet: "<%= @latestTweets[1].tweetText %>"
+                tweet: "<%= @latestTweets[1].tweetText.gsub(/\n/,"") %>"
             },{
                 y: <%= @latestTweets[0].tweetScore %>,
-                tweet: "<%= @latestTweets[0].tweetText %>"
+                tweet: "<%= @latestTweets[0].tweetText.gsub(/\n/,"") %>"
             }]
         }],
         plotOptions: {
