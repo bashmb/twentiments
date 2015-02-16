@@ -15,7 +15,7 @@
 
 
       </div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background-color:<%= @dropdownColorArray[(score/10).round]%>;">
       	<p>
         <%= auto_link(latestTweet.text).html_safe %>
       	</p>

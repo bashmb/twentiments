@@ -49,6 +49,18 @@ class FriendsController < ApplicationController
 							"#8BC34A",	#08
 							"#8BC34A",	#09
 							"#8BC34A" ]	#10
+		@dropdownColorArray = [
+							"#F57C00", 	#00
+							"#F57C00",	#01
+							"#F57C00",	#02
+							"#F57C00",	#03
+							"#CFD8DC",	#04
+							"#CFD8DC", 	#05
+							"#CFD8DC",	#06
+							"#DCEDC8",	#07
+							"#DCEDC8",	#08
+							"#DCEDC8",	#09
+							"#DCEDC8" ]	#10
 	end
 	
 	def show

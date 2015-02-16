@@ -1,36 +1,31 @@
 <div style="width:600px; margin:0 auto;">
-<nav class="light-blue lighten-1" role="navigation">
+<nav class="lighten-1" role="navigation" style="background-color:#ff5722">
     <div class="container">
       <div class="nav-wrapper">
 
-      	<a href="#" data-activates="slide-out" class="button-collapse">
-  			<i class="large mdi-navigation-menu"></i>
-		</a>
 		<%= link_to "<i class = mdi-editor-mode-comment></i>Twentiments".html_safe, :friends, :class => "brand-logo" %>
       </div>
-    </div>
+
     <ul class="mobile">
       <li></li>
     </ul>
   </nav>
-  <ul id="slide-out" class="side-nav full">
-    <br>
-    <br>
-    <br>
+      <div class="row" style='height:47px'>
+        <div class='col s3' style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i> Add</a></div>
 
-    <li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal1"><i class="mdi-content-add" style="font-size:30px"></i> Add</a></li>
-    <li><%= link_to "<i class = mdi-editor-mode-comment></i> View".html_safe, :friends, :style => 'font-size:30px' %></li>
-    <li><li style='font-size:30px'><a class="waves-effect waves-light modal-trigger" href="#modal2"><i class="mdi-hardware-keyboard-alt" style="font-size:30px"></i> Compare</a></li>
-    <li><%= link_to "#{image_tag('github32.png')} About".html_safe, "https://github.com/bashmb/twentiments", :style => 'font-size:30px' %></li>
-  
-</ul>
+        <div class='col s3'><%= link_to "<i class = mdi-editor-mode-comment></i> View".html_safe, :friends, :style => 'font-size:30px' %></div>
+
+        <div class='col s3' style='font-size:20px'><a class="waves-effect waves-light modal-trigger" href="#modal2"><i class="mdi-hardware-keyboard-alt" style="font-size:30px"></i> Compare</a></div>
+        <div class='col s3'><%= link_to "<i class = mdi-action-stars></i> About".html_safe, "https://github.com/bashmb/twentiments", :style => 'font-size:30px' %></div>
+    </div>
+
 </div>
 
 
 
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal full">
   <h4>Add new friend</h4>
     <p>Please enter your friend's Twitter handle below and click "Add Friend".</p>
     <%= form_for (Friend.new) do |f| %>
@@ -48,10 +43,10 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal2" class="modal">
+<div id="modal2" class="modal full">
 
   <h4>Compare Friends</h4>
-    <p>To compare Twitter users' Twitters, provide their Twitter handles below.</p>
+    <p>To compare Twitter users, provide their Twitter handles below.</p>
     <%= form_tag("/friends/compareb", method: "") do %>
 
       <p>

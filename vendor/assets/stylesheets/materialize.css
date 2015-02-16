@@ -4999,7 +4999,7 @@ nav {
     display: inline-block;
     font-size: 2.1rem;
     padding: 0; }
-    @media only screen and (max-width : 992px) {
+    @media only screen and (max-width : 9920px) {
       nav .brand-logo {
         left: 0;
         width: 100%;
