@@ -60,7 +60,7 @@ $(function () {
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            type: 'column'
+            type: 'spline'
         },  
 
         title: {
@@ -193,7 +193,21 @@ $(function () {
             }
         },
         tooltip: {
-        	shared: true
+            animation: false,
+            followPointer: false,
+            shadow: false,
+        	shared: true,
+            backgroundColor: '#FFFFFF',
+            borderColor: '#FFFFFF',
+            borderRadius: 10,
+            borderWidth: 2,
+            crosshairs: [true, false],
+            formatter: function() {
+            },
+            positioner: function () {
+                return { x: 10, y: 35 };
+            }
+
         }
     });
 });
