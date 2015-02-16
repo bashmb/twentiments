@@ -48,14 +48,17 @@
 
 <!-- Modal Structure -->
 <div id="modal2" class="modal">
+
   <h4>Compare Friends</h4>
     <%= form_tag("/friends/compareb", method: "") do %>
 
       <p>
-        <%=  text_field_tag('user_1') %>
+
+        <%=  text_field_tag('user_1', nil, :class => 'typeahead' )%>
+
       </p>
       <p>
-        <%=  text_field_tag('user_2') %>
+        <%=  text_field_tag('user_2', nil, :class => 'typeahead' )%>
       </p>
 
       <div class="action-bar">
@@ -79,4 +82,43 @@
   $('#compareBtn').click(function() {
       location.href = '/friends/compare/' + $('#user_1').val() + '/with_user/' + $('#user_2').val()
   });
+</script>
+
+<script>
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substrRegex;
+ 
+    // an array that will be populated with substring matches
+    matches = [];
+ 
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+ 
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        // the typeahead jQuery plugin expects suggestions to a
+        // JavaScript object, refer to typeahead docs for more info
+        matches.push({ value: str });
+      }
+    });
+ 
+    cb(matches);
+  };
+};
+
+var states = <%= raw @friendArray %>;
+ 
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  displayKey: 'value',
+  source: substringMatcher(states)
+});
 </script>
