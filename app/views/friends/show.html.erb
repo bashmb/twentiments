@@ -10,13 +10,11 @@
                 <a class="waves-effect waves-light btn" title="Delete" onclick="toast('<span>Remove Friend</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;/friends/<%=@friend[0].twitterHandle%>&quot; data-method=&quot;delete&quot;>Confirm?<a>', 8000)"><i class='mdi-content-clear'></i></a>
                 </span>
               </span>
-              <div> <%= @friend[0].friendDescription %> </div>
+              <div> <% if @friend[0].friendDescription %>
+              <i><%= auto_link(@friend[0].friendDescription).html_safe %></i>
+              <% end%> </div>
               <span class='right hoverScore'>
-                
                 </span>
-
-
-
               <h5 class='tweet'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
             </div>
           </div>
@@ -24,8 +22,6 @@
       </div>
       
 <div id="container" style="width:100%; height:400px;"></div>
-
-
       <script>
 $(function () {
     var $reporting = $('#reporting');
@@ -132,4 +128,3 @@ $(function () {
     });
 });
 </script>
-
