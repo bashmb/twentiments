@@ -11,9 +11,6 @@
               </span>
               <h5 class='tweet'><div id='reporting1'>Hover over chart below to view prior tweets.</div></h5>
             </div>
-            <div class="card-action hoverCard1" style="background-color:<%= @scoreColor %>">
-              <h5><div id='hoverScore1'>--</div></h5>
-            </div>
           </div>
         </div>
 
@@ -26,9 +23,6 @@
                 <i><%=link_to "@" + @user2Friend[0].twitterHandle, "http://twitter.com/" + @user2Friend[0].twitterHandle %></i>
               </span>
               <h5 class='tweet'><div id='reporting2'>Hover over chart below to view prior tweets.</div></h5>
-            </div>
-            <div class="card-action hoverCard2" style="background-color:<%= @scoreColor %>">
-              <h5><div id='hoverScore2'>--</div></h5>
             </div>
           </div>
         </div>
@@ -182,8 +176,6 @@ $(function () {
                         mouseOver: function () {
                             $reporting1.html(this.tweet1).twitter_autolink();
                             $reporting2.html(this.tweet2).twitter_autolink();
-                            $hoverScore1.html(this.tweet1val);
-                            $hoverScore2.html(this.tweet2val);
                             $('.hoverCard1').css('background-color', colorArray[Math.round((this.tweet1val)/10)]);
                             $('.hoverCard2').css('background-color', colorArray[Math.round((this.tweet2val)/10)]);
                         }

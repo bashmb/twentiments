@@ -6,18 +6,18 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text hoverCard" style="background-color:<%= @scoreColor %>" >
               <span class="card-title"> <img src="<%= @tweets[9].user.profile_image_url%>"> <%= @friend[0].firstName %> 
-                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i>
-              </span>
-              <span class='right'>
+                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i><span class='right'>
                 <a class="waves-effect waves-light btn" title="Delete" onclick="toast('<span>Remove Friend</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;/friends/<%=@friend[0].twitterHandle%>&quot; data-method=&quot;delete&quot;>Confirm?<a>', 8000)"><i class='mdi-content-clear'></i></a>
+                </span>
+              </span>
+              <div> <%= @friend[0].friendDescription %> </div>
+              <span class='right hoverScore'>
+                
                 </span>
 
 
 
               <h5 class='tweet'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
-            </div>
-            <div class="card-action hoverCard" style="background-color:<%= @scoreColor %>">
-              <h5><div id='hoverScore'>--</div></h5>
             </div>
           </div>
         </div>
@@ -105,7 +105,6 @@ $(function () {
                     events: {
                         mouseOver: function () {
                             $reporting.html(this.tweet).twitter_autolink();
-                            $hoverScore.html(this.y);
                             $('.hoverCard').css('background-color', colorArray[Math.round((this.y)/10)]);
                         }
                     }

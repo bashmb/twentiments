@@ -20,11 +20,16 @@
 .card-content {
   font-size: 1.1em;
 	min-width: 600px;
-	min-height: 260px;
+	min-height: 380px;
 }
 
 .card a {
   font-size: .75em;
+}
+
+.card-action {
+  max-height: 50px;
+  padding: 5px;
 }
 
 .modal {
