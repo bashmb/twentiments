@@ -32,6 +32,7 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <h4>Add new friend</h4>
+    <p>Please enter your friend's Twitter handle below and click "Add Friend".</p>
     <%= form_for (Friend.new) do |f| %>
       <p>
         <%=  f.text_field :twitterHandle, :placeholder => "@Twitter Handle" %>
@@ -50,6 +51,7 @@
 <div id="modal2" class="modal">
 
   <h4>Compare Friends</h4>
+    <p>To compare Twitter users' Twitters, provide their Twitter handles below.</p>
     <%= form_tag("/friends/compareb", method: "") do %>
 
       <p>
