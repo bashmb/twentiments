@@ -20,7 +20,7 @@
         <%= auto_link(latestTweet.text).html_safe %>
       	</p>
         <p>
-       <%= link_to "View More", "friends/" + friend.twitterHandle, :style => 'font-weight:bold' %>
+       <%= link_to "More <i class='mdi-action-trending-up'></i>".html_safe, "friends/" + friend.twitterHandle, :style => 'font-weight:bold' %>
         </p>
   	  </div>
     </li>
