@@ -77,6 +77,6 @@
 </script>
 <script>
   $('#compareBtn').click(function() {
-      alert($('#user_1').val());
+      location.href = '/friends/compare/' + $('#user_1').val() + '/with_user/' + $('#user_2').val()
   });
 </script>
