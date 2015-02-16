@@ -32,6 +32,11 @@ class FriendsController < ApplicationController
 
 	def index
 		@friends = Friend.all
+		@friendArray = []
+		Friend.all.each do |friend|
+			@friendArray << friend.twitterHandle
+		end
+
 		@scoreColorArray = [	
 							"#CC0033", 	#00
 							"#CC0033",	#01
