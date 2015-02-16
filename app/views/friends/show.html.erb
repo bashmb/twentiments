@@ -26,26 +26,28 @@
 $(function () {
     var $reporting = $('#reporting');
     var $hoverScore = $('#hoverScore');
-    var colorArray = [      "#CC0033",  
-                            "#CC0033",  
-                            "#CC0033",  
-                            "#B61945",  
-                            "#A13256",
+    var colorArray = [
+                            "#FF5782",  
+                            "#FF5782",  
+                            "#FF5782",  
+                            "#FF5782",  
                             "#607D8B",  
-                            "#458E75",  
-                            "#3C936D",  
-                            "#339966",  
-                            "#339966",  
-                            "#339966" ]
+                            "#607D8B",  
+                            "#607D8B",  
+                            "#8BC34A",  
+                            "#8BC34A",  
+                            "#8BC34A",  
+                            "#8BC34A" ] 
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            type: 'areaspline'
+            type: 'areaspline',
+            backgroundColor: '#DCEDC8'
         },  
-
         title: {
             text: ""
         },
+        colors: ['#727272', '#727272'],
         credits: {
             enabled: false
         },
@@ -113,8 +115,8 @@ $(function () {
             followPointer: false,
             shadow: false,
             shared: true,
-            backgroundColor: '#FFFFFF',
-            borderColor: '#FFFFFF',
+            backgroundColor: '#DCEDC8',
+            borderColor: '#DCEDC8',
             borderRadius: 10,
             borderWidth: 2,
             crosshairs: [true, false],
