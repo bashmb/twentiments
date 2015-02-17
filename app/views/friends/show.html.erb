@@ -6,7 +6,7 @@
             <div class="card-content white-text hoverCard" style="background-color:<%= @scoreColor %>" >
 
               <span class="card-title"> <img src="<%= Friend.where(twitterHandle:@friend[0].twitterHandle)[0].friendImgURL%>"> <%= @friend[0].firstName %> 
-                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i><span class='right'>
+                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i><span class='right' >
                 <a class="waves-effect waves-light btn" title="Delete" onclick="toast('<span>Remove Friend</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;/friends/<%=@friend[0].twitterHandle%>&quot; data-method=&quot;delete&quot;>Confirm?<a>', 8000)"><i class='mdi-content-clear'></i></a>
                 </span>
               </span>
@@ -53,7 +53,7 @@ $(function () {
         },
         xAxis: {
 
-            categories: ['','','','','','','','','',"Latest Tweet"]
+            categories: ['Earliest Tweet','','','','','','','','',"Latest Tweet"]
         },
         yAxis: {
             min: 0,
