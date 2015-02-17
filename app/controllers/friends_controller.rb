@@ -1,28 +1,38 @@
-require 'open-uri'
+# require 'open-uri'
 class FriendsController < ApplicationController
 	def create
 		@friend = Friend.new(friend_params)
 		@friend['twitterHandle'] = @friend['twitterHandle'].gsub(/@/,"")
 		begin
-			if CLIENT.user(@friend.twitterHandle).created?
-				@friend['firstName'] = CLIENT.user(@friend.twitterHandle).name
+			clientData = CLIENT.user(@friend.twitterHandle)
+			if clientData.created?
+				@friend['firstName'] = clientData.name
+				@friend['friendImgURL'] = clientData.profile_image_url
 				@friend.save
+
 					tweets = CLIENT.user_timeline(@friend.twitterHandle)
-					(10).downto(0).each do |i|
-						newTweet = Tweet.new
-						newTweet.tweetTime = tweets[i].created_at.to_i
+					(9).downto(0).each do |i|
 						lastTweetTime = Tweet.where(twitterHandle:@friend.twitterHandle).maximum("tweetTime")
-						if lastTweetTime == nil or newTweet.tweetTime > lastTweetTime
+						newTweet = Tweet.new
+						if tweets[i] == nil
 							newTweet.twitterHandle = @friend.twitterHandle
+							newTweet.tweetTime = 10000
+							newTweet.tweetScore = 50
+							newTweet.tweetText = ""
+							newTweet.save
+						else
+							newTweet.twitterHandle = @friend.twitterHandle
+							newTweet.tweetTime = tweets[i].created_at.to_i
 							newTweet.tweetText = tweets[i].text.chomp
 							newTweet.tweetScore = (Indico.sentiment(newTweet.tweetText)*100).round
 							newTweet.save
 						end
 					end
-				redirect_to :friends
+
+				redirect_to :friend
 			end
 		rescue
-			redirect_to @friend
+			redirect_to :friends
 		end
 
 	end
@@ -66,8 +76,7 @@ class FriendsController < ApplicationController
 	def show
 		@latestTweets = Tweet.where(twitterHandle:params[:id]).order(Tweet.arel_table[:tweetTime].desc).limit(10)
 		@friend = Friend.where(twitterHandle:params[:id])
-		@tweets = CLIENT.user_timeline(params[:id])
-
+		
 	end
 
 	def destroy
@@ -86,8 +95,6 @@ class FriendsController < ApplicationController
 		@user1Friend = Friend.where(twitterHandle:params[:user_1]).to_a
 		@user2Friend = Friend.where(twitterHandle:params[:user_2]).to_a
 		
-		@user1tweets = CLIENT.user_timeline(params[:user_1])
-		@user2tweets = CLIENT.user_timeline(params[:user_2])
 	end
 
 	private

@@ -5,19 +5,19 @@
 
 <% @friends.each do |friend| %>
     <li>
-    <% latestTweet = CLIENT.user_timeline(friend.twitterHandle)[0] %>
-    <% score = (Indico.sentiment(latestTweet.text)*100).round %>
+    <% latestTweet = Tweet.where(twitterHandle:friend.twitterHandle).order(Tweet.arel_table[:tweetTime].desc).limit(1)[0] %>
+    <% score = latestTweet.tweetScore %>
 
       <div class="collapsible-header" style="background-color:<%= @scoreColorArray[(score/10).round]%>; color=#FFFFFF ">
 
-      	<span><img src="<%= latestTweet.user.profile_image_url %>" width="50" height="50"></span>
+      	<span><img src="<%= Friend.where(twitterHandle:friend.twitterHandle)[0].friendImgURL %>" width="50" height="50"></span>
         <span style='color:#212121; font-size:2em;'><%= friend.firstName %></span>
 
 
       </div>
       <div class="collapsible-body" style="background-color:<%= @dropdownColorArray[(score/10).round]%>;">
       	<p>
-        <%= auto_link(latestTweet.text).html_safe %>
+        <%= auto_link(latestTweet.tweetText).html_safe %>
       	</p>
         <p>
        <%= link_to "More <i class='mdi-action-trending-up'></i>".html_safe, "friends/" + friend.twitterHandle, :style => 'font-weight:bold' %>
