@@ -4,7 +4,7 @@
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text hoverCard1" style="background-color:<%= @scoreColor %>" >
-              <span class="card-title"> <img src="<%= @user1tweets[9].user.profile_image_url%>"> <%= link_to @user1Friend[0].firstName, "/friends/" + @user1Friend[0].twitterHandle %> 
+              <span class="card-title"> <img src="<%= Friend.where(twitterHandle:@user1Friend[0].twitterHandle)[0].friendImgURL%>"> <%= link_to @user1Friend[0].firstName, "/friends/" + @user1Friend[0].twitterHandle %> 
                 <i><%=link_to "@" + @user1Friend[0].twitterHandle, "http://twitter.com/" + @user1Friend[0].twitterHandle %></i>
               </span>
               <h5 class='tweet'><div id='reporting1'>Hover over chart below to view prior tweets.</div></h5>
@@ -17,7 +17,7 @@
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text hoverCard2" style="background-color:<%= @scoreColor %>" >
-              <span class="card-title"> <img src="<%= @user2tweets[9].user.profile_image_url%>"> <%= link_to @user2Friend[0].firstName, "/friends/" + @user2Friend[0].twitterHandle %> 
+              <span class="card-title"> <img src="<%= Friend.where(twitterHandle:@user2Friend[0].twitterHandle)[0].friendImgURL %>"> <%= link_to @user2Friend[0].firstName, "/friends/" + @user2Friend[0].twitterHandle %> 
                 <i><%=link_to "@" + @user2Friend[0].twitterHandle, "http://twitter.com/" + @user2Friend[0].twitterHandle %></i>
               </span>
               <h5 class='tweet'><div id='reporting2'>Hover over chart below to view prior tweets.</div></h5>
