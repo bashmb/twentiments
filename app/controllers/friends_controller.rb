@@ -9,22 +9,20 @@ class FriendsController < ApplicationController
 				@friend['firstName'] = clientData.name
 				@friend['friendImgURL'] = clientData.profile_image_url
 				@friend.save
-					# Add blank tweets
-					10.times do
-						blankTweet = Tweet.new
-						blankTweet.tweetTime = 10000
-						blankTweet.twitterHandle = @friend.twitterHandle
-						blankTweet.tweetText = ""
-						blankTweet.tweetScore = 50
-						blankTweet.save
-					end
+
 					tweets = CLIENT.user_timeline(@friend.twitterHandle)
-					(10).downto(0).each do |i|
-						newTweet = Tweet.new
-						newTweet.tweetTime = tweets[i].created_at.to_i
+					(9).downto(0).each do |i|
 						lastTweetTime = Tweet.where(twitterHandle:@friend.twitterHandle).maximum("tweetTime")
-						if lastTweetTime === nil or newTweet.tweetTime > lastTweetTime
+						newTweet = Tweet.new
+						if tweets[i] == nil
 							newTweet.twitterHandle = @friend.twitterHandle
+							newTweet.tweetTime = 10000
+							newTweet.tweetScore = 50
+							newTweet.tweetText = ""
+							newTweet.save
+						else
+							newTweet.twitterHandle = @friend.twitterHandle
+							newTweet.tweetTime = tweets[i].created_at.to_i
 							newTweet.tweetText = tweets[i].text.chomp
 							newTweet.tweetScore = (Indico.sentiment(newTweet.tweetText)*100).round
 							newTweet.save
