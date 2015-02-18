@@ -1,4 +1,3 @@
-# require 'open-uri'
 class FriendsController < ApplicationController
 	def create
 		@friend = Friend.new(friend_params)
@@ -8,6 +7,7 @@ class FriendsController < ApplicationController
 			if clientData.created?
 				@friend['firstName'] = clientData.name
 				@friend['friendImgURL'] = clientData.profile_image_url
+				@friend['friendDescription'] = clientData.description
 				@friend.save
 
 					tweets = CLIENT.user_timeline(@friend.twitterHandle)
