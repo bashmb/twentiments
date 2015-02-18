@@ -1,21 +1,23 @@
-<div style="width:600px; margin:0 auto;">
-<h5><i><%= link_to "Twentiments > " , :friends  %><%= "@" + @friend[0].twitterHandle %></i></h5>
+<div style="width:730px; margin:0 auto;">
+<h5><span class="card-title"> <img src="<%= Friend.where(twitterHandle:@friend[0].twitterHandle)[0].friendImgURL%>"> <%= @friend[0].firstName %> 
+                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i>
+              </span>
+<span class='right' >
+                <a class="waves-effect waves-light btn" title="Delete" onclick="toast('<span>Remove Friend</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;/friends/<%=@friend[0].twitterHandle%>&quot; data-method=&quot;delete&quot;>Confirm?<a>', 8000)"><i class='mdi-content-clear'></i></a>
+                </span>
+</h5>
 <div class="row" >
         <div class="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text hoverCard" style="background-color:<%= @scoreColor %>" >
 
-              <span class="card-title"> <img src="<%= Friend.where(twitterHandle:@friend[0].twitterHandle)[0].friendImgURL%>"> <%= @friend[0].firstName %> 
-                <i><%=link_to "@" + @friend[0].twitterHandle, "http://twitter.com/" + @friend[0].twitterHandle %></i><span class='right' >
-                <a class="waves-effect waves-light btn" title="Delete" onclick="toast('<span>Remove Friend</span><a class=&quot;btn-flat yellow-text&quot; href=&quot;/friends/<%=@friend[0].twitterHandle%>&quot; data-method=&quot;delete&quot;>Confirm?<a>', 8000)"><i class='mdi-content-clear'></i></a>
-                </span>
-              </span>
+              
               <div> <% if @friend[0].friendDescription %>
               <i><%= auto_link(@friend[0].friendDescription).html_safe %></i>
               <% end%> </div>
               <span class='right hoverScore'>
                 </span>
-              <h5 class='tweet'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
+              <h5 class='tweet' style='font-size:1.6em'><div id='reporting'>Hover over chart below to view prior tweets.</div></h5>
             </div>
           </div>
         </div>
